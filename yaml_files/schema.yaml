@@ -1,0 +1,34 @@
+columns:
+  X1: float64
+  X2: float64
+  X3: float64
+  X4: float64
+  X5: float64
+  X6: float64
+  X7: float64
+  X8: float64
+  Y1: float64
+  Y2: float64
+
+numerical_columns:
+  - X1
+  - X2
+  - X3
+  - X4
+  - X5
+  - X6
+  - X7
+  - X8
+
+target_column: 
+ - Y1
+ - Y2
+ 
+
+
+
+
+  
+
+
+
