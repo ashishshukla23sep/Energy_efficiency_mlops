@@ -9,7 +9,8 @@ def main():
     try:
         config_path = os.path.join("yaml_files","config.yaml")
         pipeline = Pipeline(Configuartion(config_file_path=config_path))
-        pipeline.run_pipeline()
+        pipeline.start()
+        logging.info("main function execution completed.")
         #print(Configuartion().get_data_transformation_config())
         # schema_file_path=r"C:\Users\1672040\Desktop\project\Energy efficiency\yaml_files\schema.yaml"
         # file_path=r"C:\Users\1672040\Desktop\project\Energy efficiency\Energy_efficiency\artifact\data_ingestion\2022-07-15-14-12-24\ingested_data\train\cleaned_data.csv"
