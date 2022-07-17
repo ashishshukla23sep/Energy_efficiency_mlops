@@ -57,7 +57,7 @@ class Energy_efficiency_Data:
             raise EnergyException(e, sys)
 
 
-class HousingPredictor:
+class EnergyPredictor:
 
     def __init__(self, model_dir: str):
         try:
@@ -79,7 +79,7 @@ class HousingPredictor:
         try:
             model_path = self.get_latest_model_path()
             model = load_object(file_path=model_path)
-            Heating_Load = model.predict(X)
-            return Heating_Load
+            Heating_Load,Cooling_load = model.predict(X)
+            return Heating_Load,Cooling_load
         except Exception as e:
             raise EnergyException(e, sys) from e
