@@ -1,0 +1,123 @@
+{% extends 'header.html' %}
+
+{% block head %}
+
+
+<title>Heating and Cooling Load Estimator</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-6 col-sm-12 col-xs-6 col-lg-6">
+
+
+        <form action="/predict" method="post">
+            <legend>Heating and Cooling Load Estimation Form</legend>
+            <div class="mb-3">
+                <label class="form-label">Relative_Compactness</label>
+                <input class="form-control" type="text" name="Relative_Compactness" placeholder="Enter a value of Relative_Compactness"
+                    required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Surface_Area</label>
+                <input class="form-control" type="text" name="Surface_Area" placeholder="Enter a value of Surface_Area"
+                    required />
+
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Wall_Area</label>
+                <input class="form-control" type="text" name="Wall_Area"
+                    placeholder="Enter a value of Wall_Area" />
+
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Roof_Area</label>
+                <input class="form-control" type="text" name="Roof_Area" placeholder="Enter a value of Roof_Area"
+                    required />
+
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Overall_Height</label>
+                <input class="form-control" type="text" name="Overall_Height"
+                    placeholder="Enter a value of Overall_Height" required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Orientation </label>
+                <input class="form-control" type="text" name="Orientation" placeholder="Enter a value of Orientation"
+                    required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Glazing_Area</label>
+                <input class="form-control" type="text" name="Glazing_Area" placeholder="Enter a value of Glazing_Area"
+                    required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Glazing_Area_Distribution</label>
+                <input class="form-control" type="text" name="Glazing_Area_Distribution"
+                    placeholder="Enter a value of Glazing_Area_Distribution" required />
+            </div>
+           
+            <div class="mb-3">
+
+                <input class="btn btn-primary" type="submit" value="Predict Heating and Cooling load" required />
+            </div>
+
+        </form>
+    </div>
+
+    <div class="col-md-6 col-sm-12 col-xs-6 col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                Heating and Cooling Load price
+            </div>
+            <div class="card-body">
+        {% if context['energy_data'] is not none %}
+        <table class="table table-striped">
+            <caption>Heating and Cooling Load Prediction </caption>
+            <tr>
+                <th>Input Feature</th>
+                <th>Feature Value</th>
+
+            </tr>
+            {% for column,value in context['energy_data'].items() %}
+
+
+
+            <tr>
+                <td>{{column}}</td>
+                <td>{{value[0]}}</td>
+            </tr>
+
+            {% endfor %}
+            <tr>
+
+                <td>heating_load_value </td>
+                <td>
+                    {{ context['heating_load_value'][0] }}
+                </td>
+            </tr>
+
+            <tr>
+
+                <td>cooling_load_value </td>
+                <td>
+                    {{ context['cooling_load_value'][0] }}
+                </td>
+            </tr>
+        </table>
+
+        {% else %}
+       
+              <h5 class="card-title">Submit Form</h5>
+              <p class="card-text">Kindly provide necessary information to Heating and Cooling Load</p>
+            
+         
+
+        {% endif %}
+        Go to <a href="/" class="btn btn-primary">Home</a>
+    </div>
+</div>
+    </div>
+
+    {% endblock %}

@@ -127,7 +127,7 @@ def evaluate_regression_model(model_list: list, X_train:np.ndarray, y_train:np.n
 
                 #if model accuracy is greater than base accuracy and train and test score is within certain thershold
                 #we will accept that model as accepted model
-                if model_accuracy >= base_accuracy and model_accuracy1 >= base_accuracy and diff_test_train_acc < 0.05 and diff_test_train_acc1 < 0.05:
+                if model_accuracy >= base_accuracy or model_accuracy1 >= base_accuracy and diff_test_train_acc < 0.05 or diff_test_train_acc1 < 0.05:
                     base_accuracy = (model_accuracy+model_accuracy1)/2
                     metric_info_artifact = MetricInfoArtifact1(model_name=model_name,
                                                             model_object=model,
@@ -139,7 +139,8 @@ def evaluate_regression_model(model_list: list, X_train:np.ndarray, y_train:np.n
                                                             train_accuracy1=train_acc1,
                                                             test_accuracy=test_acc,
                                                             test_accuracy1=test_acc1,
-                                                            model_accuracy=(model_accuracy+model_accuracy1)/2,
+                                                            model_accuracy=model_accuracy,
+                                                            model_accuracy1=model_accuracy1,
                                                             index_number=index_number)
 
                     logging.info(f"Acceptable model found {metric_info_artifact}. ")

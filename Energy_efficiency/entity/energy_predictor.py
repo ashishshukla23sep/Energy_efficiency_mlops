@@ -32,15 +32,15 @@ class Energy_efficiency_Data:
         except Exception as e:
             raise EnergyException(e, sys) from e
 
-    def get_housing_input_data_frame(self):
+    def get_energy_input_data_frame(self):
 
         try:
-            housing_input_dict = self.get_housing_data_as_dict()
-            return pd.DataFrame(housing_input_dict)
+            energy_input_dict = self.get_energy_data_as_dict()
+            return pd.DataFrame(energy_input_dict)
         except Exception as e:
             raise EnergyException(e, sys) from e
 
-    def get_housing_data_as_dict(self):
+    def get_energy_data_as_dict(self):
         try:
             input_data = {
                 "X1": [self.X1],
