@@ -42,22 +42,7 @@ class DataIngestion:
         except Exception as e:
             raise EnergyException(e,sys) from e
 
-    # def extract_tgz_file(self,tgz_file_path:str):
-    #     try:
-    #         raw_data_dir = self.data_ingestion_config.raw_data_dir
-
-    #         if os.path.exists(raw_data_dir):
-    #             os.remove(raw_data_dir)
-
-    #         os.makedirs(raw_data_dir,exist_ok=True)
-
-    #         logging.info(f"Extracting tgz file: [{tgz_file_path}] into dir: [{raw_data_dir}]")
-    #         with tarfile.open(tgz_file_path) as housing_tgz_file_obj:
-    #             housing_tgz_file_obj.extractall(path=raw_data_dir)
-    #         logging.info(f"Extraction completed")
-
-    #     except Exception as e:
-    #         raise EnergyException(e,sys) from e
+   
     
     def split_data_as_train_test(self) -> DataIngestionArtifact:
         try:

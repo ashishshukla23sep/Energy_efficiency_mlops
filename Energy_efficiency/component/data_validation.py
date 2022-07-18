@@ -131,14 +131,14 @@ class DataValidation:
     def initiate_data_validation(self)->DataValidationArtifact :
         try:
             self.is_train_test_file_exists()
-            self.validate_dataset_schema()
+            validation_status=self.validate_dataset_schema()
             self.is_data_drift_found()
 
             data_validation_artifact = DataValidationArtifact(
                 schema_file_path=self.data_validation_config.schema_file_path,
                 report_file_path=self.data_validation_config.report_file_path,
                 report_page_file_path=self.data_validation_config.report_page_file_path,
-                is_validated=True,
+                is_validated=validation_status,
                 message="Data Validation performed successully."
             )
             logging.info(f"Data validation artifact: {data_validation_artifact}")
