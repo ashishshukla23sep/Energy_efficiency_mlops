@@ -1,35 +1,3 @@
-# from Energy_efficiency.constant import *
-# from Energy_efficiency.util.util import read_yaml_file
-# from Energy_efficiency.entity.energy_predictor import  Energy_efficiency_Data,EnergyPredictor
-# from flask import Flask, request
-# from flasgger import Swagger
-# from Energy_efficiency.logger import get_log_dataframe
-
-# config_info = read_yaml_file(file_path=CONFIG_FILE_PATH)
-# model_pusher_config_info = config_info[MODEL_PUSHER_CONFIG_KEY]
-# saved_dir_path = os.path.join(ROOT_DIR, model_pusher_config_info[MODEL_PUSHER_MODEL_EXPORT_DIR_KEY])
-
-# app = Flask(__name__)
-# swagger = Swagger(app)
-
-# @app.route('/')
-# def predict():
-#     Relative_Compactness = request.args.get("Relative_Compactness")
-#     Surface_Area = request.args.get("Surface_Area")
-#     Wall_Area = request.args.get('Wall_Area')
-#     Roof_Area = request.args.get('Roof_Area')
-#     Overall_Height = request.args.get('Overall_Height')
-#     Orientation = request.args.get('Orientation')
-#     Glazing_Area = request.args.get('Glazing_Area')
-#     Glazing_Area_Distribution = request.args.get('Glazing_Area_Distribution')
-
-#     data = Energy_efficiency_Data(Relative_Compactness,Surface_Area,Wall_Area,Roof_Area,Overall_Height,Orientation,Glazing_Area,Glazing_Area_Distribution).get_energy_input_data_frame()
-#     Heating_Load,Cooling_load = EnergyPredictor(saved_dir_path).predict(data)
-
-#     return f"Heating load is {str(Heating_Load[0])} and Cooling load is {str(Cooling_load[0])}"
-
-# if __name__ == '__main__':
-#     app.run(host='0.0.0.0',debug=True)
 
 from flask import Flask, request
 import sys

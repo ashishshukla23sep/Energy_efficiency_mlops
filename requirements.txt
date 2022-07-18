@@ -8,5 +8,4 @@ evidently
 dill
 six
 matplotlib
-flasgger
 -e .
