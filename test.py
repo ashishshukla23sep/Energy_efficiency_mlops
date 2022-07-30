@@ -1,6 +1,6 @@
 from Energy_efficiency.pipeline.pipeline import Pipeline
 from Energy_efficiency.exception import EnergyException
-from Energy_efficiency.logger import logging,LOG_FILE_PATH
+from Energy_efficiency.logger import logging,LOG_FILE_PATH,upload_log_to_db
 from Energy_efficiency.config.configuration import Configuartion
 from Energy_efficiency.component.data_transformation import DataTransformationArtifact
 from Energy_efficiency.constant import ROOT_DIR
@@ -23,5 +23,3 @@ def main():
 
 if __name__=="__main__":
     main()
-
-

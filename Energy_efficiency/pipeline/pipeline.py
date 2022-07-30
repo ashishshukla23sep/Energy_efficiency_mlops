@@ -1,5 +1,5 @@
 from Energy_efficiency.config.configuration import Configuartion
-from Energy_efficiency.logger import logging
+from Energy_efficiency.logger import logging,upload_log_to_db
 from Energy_efficiency.exception import EnergyException
 from Energy_efficiency.entity.artifact_entity import DataIngestionArtifact,DataValidationArtifact,DataTransformationArtifact,ModelTrainerArtifact,ModelEvaluationArtifact,ModelPusherArtifact
 from Energy_efficiency.entity.config_entity import DataIngestionConfig
@@ -16,6 +16,7 @@ from threading import Thread
 import pandas as pd
 import uuid
 from Energy_efficiency.constant import EXPERIMENT_DIR_NAME, EXPERIMENT_FILE_NAME
+
 
 
 Experiment = namedtuple("Experiment", ["experiment_id", "initialization_timestamp", "artifact_time_stamp",
@@ -160,6 +161,7 @@ class Pipeline(Thread):
                                              )
             logging.info(f"Pipeline experiment: {Pipeline.experiment}")
             self.save_experiment()
+            upload_log_to_db()
         except Exception as e:
             raise EnergyException(e,sys) from e
     

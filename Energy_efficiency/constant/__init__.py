@@ -99,5 +99,7 @@ BEST_MODEL_KEY = "best_model"
 HISTORY_KEY = "history"
 MODEL_PATH_KEY = "model_path"
 
-EXPERIMENT_DIR_NAME="experiment"
-EXPERIMENT_FILE_NAME="experiment.csv"
+EXPERIMENT_DIR_NAME = "experiment"
+EXPERIMENT_FILE_NAME = "experiment.csv"
+
+DATA_BASE_CONFIG = "data_base_config"
