@@ -16,11 +16,13 @@ CONFIG_FILE_PATH = os.path.join(ROOT_DIR,CONFIG_DIR,CONFIG_FILE_NAME)
 SCHEMA_FILE_NAME="schema.yaml"
 SCHEMA_FILE_PATH=os.path.join(ROOT_DIR,CONFIG_DIR,SCHEMA_FILE_NAME)
 
-
+CREDENTIAL_FILE_NAME = 'credential.yaml'
+CREDENTIAL_FILE_PATH = os.path.join(ROOT_DIR,CONFIG_DIR,CREDENTIAL_FILE_NAME)
 
 CURRENT_TIME_STAMP = get_current_time_stamp()
 
-
+DATABASE_NAME='DATA'
+COLLOCTION_NAME = 'aws'
 
 
 # Training pipeline related variable

@@ -6,16 +6,17 @@ from Energy_efficiency.constant import *
 import os,sys
 from Energy_efficiency.logger import logging
 import json
-
+from Energy_efficiency.credentials import Decrypt
 
 class MangoDbconnection:
     def __init__(self,username=None,password=None):
         try:
             if username==None and password==None:
-                config_path= os.path.join("yaml_files","config.yaml")
+                config_path= CREDENTIAL_FILE_PATH
                 self.config = read_yaml_file(file_path=config_path)
-                self.username = self.config[DATA_BASE_CONFIG]['username']
-                self.password = self.config[DATA_BASE_CONFIG]['password']
+                
+                self.username = Decrypt(self.config['mongodb']['user_name']).get_decrypted_massage()
+                self.password = Decrypt(self.config['mongodb']['password']).get_decrypted_massage()
 
             else:
                 self.username = username

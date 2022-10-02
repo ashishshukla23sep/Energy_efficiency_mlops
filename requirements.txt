@@ -10,4 +10,5 @@ six
 matplotlib
 pymongo==3.11.0
 dnspython==1.16.0
+cryptography
 -e .

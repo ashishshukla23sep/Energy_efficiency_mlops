@@ -45,7 +45,3 @@ model_evaluation_config:
 model_pusher_config:
   model_export_dir: saved_models
 
-
-data_base_config:
-  username : ashishshukla23sep
-  password : mm1332647
